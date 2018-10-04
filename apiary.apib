@@ -1,0 +1,57 @@
+FORMAT: 1A
+HOST: http://fastighetsstyrning.smhi.se/
+
+# SMHI Fastighetsstyrning
+
+SMHI erbjuder kunder att hämta data
+
+## Översikt
+Detta är en översikt
+
+## Autentisering
+Med kundid, abonemangsid och nyckel
+
+## Tillgängliga produkter
+|Produkt|Kort produktnamn|
+|-------|----------------|
+|Energiindex månadsvärden | EImanad
+|Energiindex dygnsvärden  | EIdygn
+
+## Grundläggande Frågor [/{ort}/{produkt}]
+
+### Hämta standardprodukter [GET]
+
+
+
++ Parameters
+    + ort (required, int, `102001`) ... Platsnumret för aktuell ort
+    + produkt (required, string, `EImanad`) ... Produkten att hämta data för
+    
++ Request
+    + Headers
+            accept: application/json
+            key: customerid:subscriptionid:md5(YYYY-MM-DD:key)
+
++ Response 200 (application/json)
+
+        [
+            {
+                "question": "Favourite programming language?",
+                "published_at": "2015-08-05T08:40:51.620Z",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "votes": 2048
+                    }, {
+                        "choice": "Python",
+                        "votes": 1024
+                    }, {
+                        "choice": "Objective-C",
+                        "votes": 512
+                    }, {
+                        "choice": "Ruby",
+                        "votes": 256
+                    }
+                ]
+            }
+        ]
